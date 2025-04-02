@@ -9,8 +9,7 @@ class DestinationBloc extends Bloc<DestinationEvent, DestinationState> {
   DestinationBloc() : super(DestinationLoading()) {
     on<FetchDestinations>(_onFetchDestinations);
   }
-
-  Future<void> _onFetchDestinations(FetchDestinations event, Emitter<DestinationState> emit) async {
+Future<void> _onFetchDestinations(FetchDestinations event, Emitter<DestinationState> emit) async {
     emit(DestinationLoading());
     try {
       final response = await http.get(Uri.parse('https://dummyjson.com/products'));
@@ -20,4 +19,4 @@ class DestinationBloc extends Bloc<DestinationEvent, DestinationState> {
       emit(DestinationError());
     }
   }
-}
+  }

@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Travel Destinations',
+      debugShowCheckedModeBanner: false,
       home: BlocProvider(
         create: (context) => DestinationBloc()..add(FetchDestinations()),
         child: DestinationListPage(),
